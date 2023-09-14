@@ -3,7 +3,7 @@ import * as XLSX from 'xlsx';
 
 export const excelTableToJSONArray = async ({ file }) => {
      if (
-          file &&
+          file.name &&
           (file.name.split(".")[1] === "xlsx" || file.name.split(".")[1] === "xls")
      ) {
           const promise = new Promise((resolve, reject) => {

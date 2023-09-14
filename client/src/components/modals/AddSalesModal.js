@@ -105,7 +105,7 @@ const AddSalesModal = (props) => {
       try {
         if (e.target !== document.getElementById("search"))
           searchItemsRef.current.style.display = "none";
-      } catch (error) {}
+      } catch (error) { console.log(error); }
     };
     window.addEventListener("click", handleDropSearch);
 
@@ -270,7 +270,7 @@ const AddSalesModal = (props) => {
               disabled={!Boolean(products.length)}
               submitButton
             >
-              Add Sale
+              Issue
             </Button>
           </form>
           <Button

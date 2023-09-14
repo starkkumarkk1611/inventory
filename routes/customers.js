@@ -53,8 +53,8 @@ router.post(
 
     try {
       let newCustomer;
-      if ( history ) {
-        history.forEach( elem => {
+      if (history) {
+        history.forEach(elem => {
           elem.dateBought = new Date().toDateString()
         })
         newCustomer = new Customer({
@@ -70,7 +70,7 @@ router.post(
       }
 
       customer = await newCustomer.save();
-      
+
       res.json({ customer, msg: "Customer successfully added." });
     } catch (err) {
       console.error(err.message);
@@ -136,7 +136,7 @@ router.delete("/:customerId", authenticator, async (req, res) => {
   try {
     let customer = await Customer.findById(req.params.customerId);
     if (!customer) {
-      return res.status( 404 ).send( "Customer not found!" );
+      return res.status(404).send("Customer not found!");
     }
 
     if (customer.user.toString() !== req.user.id) {
