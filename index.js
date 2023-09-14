@@ -19,9 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 // Badass welcome message 😈
-// app.get("/", (req, res) => {
-//   res.send("Hey bitch, welcome to my API 😈😈");
-// });
+app.get("/", (req, res) => {
+  res.send("Hey bitch, welcome to my API 😈😈");
+});
 
 // removing the above cause I'm ready to deploy
 
@@ -47,13 +47,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // 404. For the sake of fun haha
-// app.use((req, res) => {
-//   res
-//     .status(404)
-//     .send(
-//       "Sorry douchebag, I can't find nothing here. Do well to find your way home or to a known route."
-//     );
-// });
+app.use((req, res) => {
+  res
+    .status(404)
+    .send(
+      "Sorry douchebag, I can't find nothing here. Do well to find your way home or to a known route."
+    );
+});
 
 // error handler middleware
 app.use((err, req, res, next) => {
